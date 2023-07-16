@@ -17,12 +17,13 @@ hand_estimation = Hand('model/hand_pose_model.pth')
 parser = argparse.ArgumentParser(
         description="Process a camera annotating poses detected.")
 parser.add_argument('--no_hands', action='store_true', help='No hand pose')
+parser.add_argument('--camera', type=int, default=0, help='Camera device ID')
 args = parser.parse_args()
 is_hands = not args.no_hands
 
 print(f"Torch device: {torch.cuda.get_device_name()}")
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(args.camera)
 cap.set(3, 640)
 cap.set(4, 480)
 while True:
