@@ -24,8 +24,8 @@ is_hands = not args.no_hands
 print(f"Torch device: {torch.cuda.get_device_name()}")
 
 cap = cv2.VideoCapture(args.camera)
-cap.set(3, 640)
-cap.set(4, 480)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 while True:
     ret, oriImg = cap.read()
     candidate, subset = body_estimation(oriImg)
