@@ -44,6 +44,7 @@ while True:
 
         canvas = util.draw_handpose(canvas, all_hand_peaks)
 
+    cv2.namedWindow("demo", cv2.WINDOW_NORMAL)
     cv2.imshow('demo', canvas)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
